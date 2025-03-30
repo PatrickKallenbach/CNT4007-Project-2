@@ -6,7 +6,7 @@ import java.util.*;
 
 // Patrick Kallenbach - CNT4007 Project 2
 
-public class Server {
+public class server {
 
 	private static final int packetSize = 1000;
 
@@ -33,17 +33,15 @@ public class Server {
      	* loop and are responsible for dealing with a single client's requests.
      	*/
     	private static class Handler extends Thread {
-        	private String message;    //message received from the client
-		private String MESSAGE;    //uppercase message send to the client
-		private Socket connection;
-        	private ObjectInputStream in;	//stream read from the socket
-        	private ObjectOutputStream out;    //stream write to the socket
+       	private Socket connection;
+		private ObjectInputStream in;	//stream read from the socket
+		private ObjectOutputStream out;    //stream write to the socket
 		private int no;		//The index number of the client
 
-        	public Handler(Socket connection, int no) {
-            		this.connection = connection;
-	    		this.no = no;
-        	}
+		public Handler(Socket connection, int no) {
+			this.connection = connection;
+			this.no = no;
+		}
 
         public void run() {
  		try{
@@ -148,7 +146,7 @@ public class Server {
 							System.out.println("Uploading file to server: " + filename);
 
 							// Create file to write new content to
-							FileOutputStream outfile = new FileOutputStream("new" + filename.substring(0, 1).toUpperCase() + filename.substring(1));
+							FileOutputStream outfile = new FileOutputStream("new" + filename);
 
 							int lastPercentage = 0; // used for displaying percentage uploaded
 

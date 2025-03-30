@@ -8,7 +8,7 @@ import java.util.*;
 
 // Patrick Kallenbach - CNT4007 Project 2
 
-public class Client {
+public class client {
 	Socket requestSocket;           //socket connect to the server
 	ObjectOutputStream out;         //stream write to the socket
  	ObjectInputStream in;          //stream read from the socket
@@ -17,7 +17,7 @@ public class Client {
 	int packetSize = 1000;
 	int port;
 
-	public Client(int port) {
+	public client(int port) {
 		this.port = port;
 	}
 
@@ -82,7 +82,7 @@ public class Client {
 							System.out.println("Downloading file: " + filename);
 
 							// Create file to write new content to
-							FileOutputStream outfile = new FileOutputStream("new" + filename.substring(0, 1).toUpperCase() + filename.substring(1));
+							FileOutputStream outfile = new FileOutputStream("new" + filename);
 
 							int lastPercentage = 0; // used for displaying percentage downloaded
 
@@ -228,7 +228,7 @@ public class Client {
 		}
 		catch (Exception exception) {
 		} 
-		Client client = new Client(port);
+		client client = new client(port);
 		client.run();
 	}
 
